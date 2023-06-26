@@ -10,3 +10,8 @@ bin/add-gpg-key
 bin/update-repository
 bin/install-docker-packages
 bin/docker-version
+
+echo '--------------'
+echo 'Please reboot.'
+echo 'This the last step of installing Docker.'
+echo 'This is necessary for allowing you to run Docker WITHOUT sudo.'
