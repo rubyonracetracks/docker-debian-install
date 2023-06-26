@@ -16,12 +16,6 @@ echo 'FINISHED: sudo apt-get install -y docker-ce docker-ce-cli containerd.io do
 echo '------------------------------------------------------------------------------------------------------------------'
 
 # Provide non-root access to Docker
-echo '---------------------------------'
-echo 'Provide non-root access to Docker'
-echo
-echo 'sudo groupadd docker'
-sudo groupadd docker
-
 echo '----------------------------------'
 echo "sudo usermod -a -G docker $LOGNAME"
 sudo usermod -a -G docker $LOGNAME
@@ -34,5 +28,4 @@ sudo chmod 666 /var/run/docker.sock
 echo '---------------------------'
 echo 'sudo service docker restart'
 sudo service docker restart
-
-
+wait
