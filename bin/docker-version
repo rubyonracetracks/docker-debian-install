@@ -5,8 +5,6 @@
 # as succeeding in spite of errors or failures.
 set -eo pipefail
 
-bin/provision
-bin/add-gpg-key
-bin/update-repository
-bin/install-docker-packages
-bin/docker-version
+echo '----------------'
+echo 'docker --version'
+docker --version
