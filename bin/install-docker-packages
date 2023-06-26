@@ -14,3 +14,20 @@ wait
 echo '------------------------------------------------------------------------------------------------------------------'
 echo 'FINISHED: sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin'
 echo '------------------------------------------------------------------------------------------------------------------'
+
+# Provide non-root access to Docker
+echo '---------------------------------'
+echo 'Provide non-root access to Docker'
+echo
+echo 'sudo groupadd docker'
+sudo groupadd docker
+
+echo '----------------------------------'
+echo "sudo usermod -a -G docker $LOGNAME"
+sudo usermod -a -G docker $LOGNAME
+
+echo '---------------------------'
+echo 'sudo service docker restart'
+sudo service docker restart
+
+
