@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# NOTE: set -o pipefail is needed to ensure that any error or failure causes the whole pipeline to fail.
+# Without this specification, the CI status will provide a false sense of security by showing builds
+# as succeeding in spite of errors or failures.
+set -eo pipefail
+
+echo '---------------------------------------'
+echo "BEGIN: adding Docker’s official GPG key"
+echo '---------------------------------------'
+wait
+sudo install -m 0755 -d /etc/apt/keyrings
+wait
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+wait
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+wait
+echo '------------------------------------------'
+echo "FINISHED: adding Docker’s official GPG key"
+echo '------------------------------------------'
