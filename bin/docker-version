@@ -8,3 +8,9 @@ set -eo pipefail
 echo '----------------'
 echo 'docker --version'
 docker --version
+echo ''
+
+echo '----------------------'
+echo 'docker compose version'
+docker compose version
+echo ''
