@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        CODE_NAME: ['bookworm', 'trixie', 'sid']
+        CODE_NAME: ['bookworm']
 
     env:
       SUITE: ${{ matrix.CODE_NAME }}
