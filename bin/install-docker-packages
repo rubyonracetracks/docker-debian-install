@@ -15,12 +15,18 @@ echo '--------------------------------------------------------------------------
 echo 'FINISHED: sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin'
 echo '------------------------------------------------------------------------------------------------------------------'
 
-env
-
 # Provide non-root access to Docker
-echo '----------------------------------'
-echo "sudo usermod -a -G docker $LOGNAME"
-sudo usermod -a -G docker $LOGNAME
+if [ "$HOME" == '/home/winner' ]; then
+  # Within Docker
+  echo '--------------------------------'
+  echo 'sudo usermod -a -G docker winner'
+  sudo usermod -a -G docker winner
+else
+  # Not within Docker
+  echo '----------------------------------'
+  echo "sudo usermod -a -G docker $LOGNAME"
+  sudo usermod -a -G docker $LOGNAME
+fi
 
 # From https://adamtheautomator.com/docker-permission-denied/
 echo '-----------------------------------'
