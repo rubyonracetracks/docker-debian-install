@@ -15,17 +15,30 @@ echo '--------------------------------------------------------------------------
 echo 'FINISHED: sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin'
 echo '------------------------------------------------------------------------------------------------------------------'
 
-# Provide non-root access to Docker
-echo '----------------------------------'
-echo "sudo usermod -a -G docker $LOGNAME"
-sudo usermod -a -G docker $LOGNAME
 
-# From https://adamtheautomator.com/docker-permission-denied/
-echo '-----------------------------------'
-echo 'sudo chmod 666 /var/run/docker.sock'
-sudo chmod 666 /var/run/docker.sock
+if [ "$HOME" == '/home/winner' ]; then
+  # Within Docker
 
-echo '---------------------------'
-echo 'sudo service docker restart'
-sudo service docker restart
-wait
+  # Provide non-root access to Docker
+  echo '--------------------------------'
+  echo 'sudo usermod -a -G docker winner'
+  sudo usermod -a -G docker winner
+else
+  # Not within Docker
+
+  # Provide non-root access to Docker
+  echo '----------------------------------'
+  echo "sudo usermod -a -G docker $LOGNAME"
+  sudo usermod -a -G docker $LOGNAME
+
+  # From https://adamtheautomator.com/docker-permission-denied/
+  echo '-----------------------------------'
+  echo 'sudo chmod 666 /var/run/docker.sock'
+  sudo chmod 666 /var/run/docker.sock
+
+  echo '---------------------------'
+  echo 'sudo service docker restart'
+  sudo service docker restart
+  wait
+fi
+
