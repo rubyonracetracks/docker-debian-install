@@ -1,3 +1,5 @@
+[![CI](https://github.com/rubyonracetracks/docker-debian-install/actions/workflows/ci.yml/badge.svg)](https://github.com/rubyonracetracks/docker-debian-install/actions/workflows/ci.yml)
+
 # Installing Docker in Debian
 This repository contains scripts for automatically installing Docker and other important development tools in an environment based on Debian Linux or one of its derivatives.
 
@@ -17,14 +19,6 @@ mkdir -p rubyonracetracks
 cd rubyonracetracks
 git clone https://github.com/rubyonracetracks/docker-debian-install.git
 cd docker-debian-install
+bash main.sh
 ```
-* To install Docker and other important development software, enter the command ```bash main.sh```.  This will take a few minutes.
-* If you just want to install Docker and skip installing the other software, enter the command ```bash install-docker-only.sh```.
-* When the script is finished, reboot your Debian-based Linux installation.
-* Open the file manager.  Go to the rubyonracetracks directory you created in your user home directory.  Delete the docker-debian-install directory, because you no longer need it.
-* Enter the following command in the terminal:
-```
-docker --version
-```
-* You should now see the Docker version installed, and there should be NO error message.
-* Congratulations!  You have successfully installed Docker.
+* The last actions of the installation script include printing out the currently installed versions of Docker and Docker Compose and running the hello-world Docker image.  If all went well, these actions were successfully executed.

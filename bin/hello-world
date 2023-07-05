@@ -5,9 +5,10 @@
 # as succeeding in spite of errors or failures.
 set -eo pipefail
 
-bin/provision
-bin/add-gpg-key
-bin/update-repository
-bin/install-docker-packages
-bin/docker-version
-bin/hello-world
+echo '#############################'
+echo 'BEGIN: docker run hello-world'
+echo '#############################'
+docker run hello-world
+echo '################################'
+echo 'FINISHED: docker run hello-world'
+echo '################################'
