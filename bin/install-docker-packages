@@ -35,9 +35,10 @@ else
   echo '-----------------------------------'
   echo 'sudo chmod 666 /var/run/docker.sock'
   sudo chmod 666 /var/run/docker.sock
+
+  echo '---------------------------'
+  echo 'sudo service docker restart'
+  sudo service docker restart
+  wait
 fi
 
-echo '---------------------------'
-echo 'sudo service docker restart'
-sudo service docker restart
-wait
