@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# NOTE: set -o pipefail is needed to ensure that any error or failure causes the whole pipeline to fail.
+# Without this specification, the CI status will provide a false sense of security by showing builds
+# as succeeding in spite of errors or failures.
+set -eo pipefail
+
+if [ "$HOME" == '/home/winner' ]; then
+  # Within Docker
+  echo 'Skipping docker run hello-world in Docker mode'
+  echo 
+else
+  # Outside Docker
+  echo '#############################'
+  echo 'BEGIN: docker run hello-world'
+  echo '#############################'
+  docker run hello-world
+  echo '################################'
+  echo 'FINISHED: docker run hello-world'
+  echo '################################'
+fi

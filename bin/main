@@ -9,4 +9,5 @@ bin/provision
 bin/add-gpg-key
 bin/update-repository
 bin/install-docker-packages
+bin/hello-world
 bin/docker-version
