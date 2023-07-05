@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+  schedule:
+    - cron: '13 5 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        CODE_NAME: ['bookworm', 'trixie', 'sid']
+
+    env:
+      SUITE: ${{ matrix.CODE_NAME }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Docker
+        run: bash main-ci.sh
