@@ -9,9 +9,8 @@ echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo 'BEGIN: updating the repository to include Docker packages'
 echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 
-# How to get Debian version code name:
-# https://unix.stackexchange.com/questions/180776/how-to-get-the-debian-codename-without-lsb-release 
-VERSION_CODENAME=`dpkg --status tzdata|grep Provides|cut -f2 -d'-'`
+# Debian Stable, Testing, and Unstable use the same Docker repository
+VERSION_CODENAME=`cat parameters/code_name_for_docker.txt`
 
 # From https://docs.docker.com/engine/install/debian/ but with corrections
 echo \
