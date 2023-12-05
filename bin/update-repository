@@ -8,16 +8,14 @@ set -eo pipefail
 echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 echo 'BEGIN: updating the repository to include Docker packages'
 echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-VERSION_CODENAME_SID=`cat /etc/debian_version`
-VERSION_CODENAME=${VERSION_CODENAME_SID%'/sid'}
-echo "VERSION_CODE_NAME_SID: $VERSION_CODE_NAME_SID"
-echo "VERSION_CODENAME: $VERSION_CODENAME"
-wait
+
+# From https://docs.docker.com/engine/install/debian/
 echo \
-  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian/\
-  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 wait
+
 bin/apt-get-update
 wait
 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
