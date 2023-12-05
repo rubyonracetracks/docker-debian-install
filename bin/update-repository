@@ -10,6 +10,8 @@ echo 'BEGIN: updating the repository to include Docker packages'
 echo '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
 VERSION_CODENAME_SID=`cat /etc/debian_version`
 VERSION_CODENAME=${VERSION_CODENAME_SID%'/sid'}
+echo "VERSION_CODE_NAME_SID: $VERSION_CODE_NAME_SID"
+echo "VERSION_CODENAME: $VERSION_CODENAME"
 wait
 echo \
   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian/\
