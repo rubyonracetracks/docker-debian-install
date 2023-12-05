@@ -18,7 +18,8 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
   https://download.docker.com/linux/debian/dists/$VERSION_CODENAME \
   stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/nullwait
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+wait
 
 echo '------------------------------------------------'
 echo "Contents of /etc/apt/sources.list.d/docker.list:"
